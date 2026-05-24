@@ -15,7 +15,7 @@ export class TodoService {
     {
       id: 2,
       description: 'Todo 2',
-      done: false,
+      done: true,
     },
     {
       id: 3,
@@ -23,6 +23,18 @@ export class TodoService {
       done: false,
     },
   ];
+
+  get totalTodos(): number {
+    return this.todos.length;
+  }
+
+  get completedTodos(): number {
+    return this.todos.filter((todo) => todo.done).length;
+  }
+
+  get pendingTodos(): number {
+    return this.todos.filter((todo) => !todo.done).length;
+  }
 
   findAll(statusArgs: StatusArgs): Todo[] {
     const { status } = statusArgs;
