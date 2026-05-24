@@ -64,4 +64,10 @@ export class TodoService {
 
     return todoToUpdate;
   }
+
+  remove(id: number): boolean {
+    const todoToRemove = this.findOne(id);
+    this.todos = this.todos.filter((todo) => todo.id !== id);
+    return true;
+  }
 }
