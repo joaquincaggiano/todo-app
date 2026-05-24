@@ -37,11 +37,10 @@ export class TodoService {
   }
 
   createTodo(createTodoInput: CreateTodoInput): Todo {
-    const todo: Todo = {
-      id: this.todos.length + 1,
-      description: createTodoInput.description,
-      done: false,
-    };
+    const todo = new Todo();
+    todo.description = createTodoInput.description;
+    todo.done = false;
+    todo.id = this.todos.length + 1;
 
     this.todos.push(todo);
 
